@@ -63,7 +63,7 @@ class BST(BinaryTree):
         list1 = sorted(self.to_list('preorder'))
         list2 = sorted(t2.to_list('preorder'))
         if list1 == list2:
-            return True 
+            return True
         else:
             return False
 
