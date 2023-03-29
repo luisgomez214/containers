@@ -60,6 +60,13 @@ class BST(BinaryTree):
         then compare those sorted lists for equality.
         '''
 
+        list1 = sorted(self.to_list('preorder'))
+        list2 = sorted(t2.to_list('preorder'))
+        if list1 == list2:
+            return True 
+        else:
+            return False
+
     def is_bst_satisfied(self):
         '''
         Whenever you implement a data structure,
