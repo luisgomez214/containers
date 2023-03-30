@@ -77,12 +77,12 @@ class AVLTree(BST):
         '''
         original = node
         if original.right:
-            newRoot = Node(original.right.value)
-            newRoot.left = Node(original.value)
-            newRoot.right = original.right.right
-            newRoot.left.left = original.left
-            newRoot.left.right = original.right.left
-            return newRoot
+            newroot = Node(original.right.value)
+            newroot.left = Node(original.value)
+            newroot.right = original.right.right
+            newroot.left.left = original.left
+            newroot.left.right = original.right.left
+            return newroot
         else:
             return original
 
@@ -100,12 +100,12 @@ class AVLTree(BST):
         '''
         original = node
         if original.left:
-            newRoot = Node(original.left.value)
-            newRoot.right = Node(original.value)
-            newRoot.left = original.left.left
-            newRoot.right.right = original.right
-            newRoot.right.left = original.left.right
-            return newRoot
+            newroot = Node(original.left.value)
+            newroot.right = Node(original.value)
+            newroot.left = original.left.left
+            newroot.right.right = original.right
+            newroot.right.left = original.left.right
+            return newroot
         else:
             return original
 
