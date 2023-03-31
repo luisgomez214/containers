@@ -63,7 +63,7 @@ class AVLTree(BST):
             left_satisfied = AVLTree._is_avl_satisfied(node.left)
             right_satisfied = AVLTree._is_avl_satisfied(node.right)
             return left_satisfied and right_satisfied
-    
+
     @staticmethod
     def _left_rotate(node):
         '''
