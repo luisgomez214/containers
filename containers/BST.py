@@ -62,9 +62,9 @@ class BST(BinaryTree):
         '''
         def sort_tree_list(tree):
             if tree is None:
-                return [] 
+                return []
             return sorted(tree)
-        
+
         if t2 is not None:
             bst1 = sort_tree_list(self)
             bst2 = sort_tree_list(t2)
