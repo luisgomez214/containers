@@ -230,26 +230,14 @@ class Heap(BinaryTree):
         First find the index of the smallest child (if any)
         , then check if we need to swap.
         '''
-        if Heap._is_heap_satisfied(node) is False:
-            if node.left:
-                left = node.left.value
-            else:
-                left = None
-            if node.right:
-                right = node.right.value
-            else:
-                right = None
-            if (left is not None) and (right is not None):
-                if left < right:
-                    child = node.left
-                else:
-                    child = node.right
-            else:
-                child = node.left or node.right
-            if child and child.value < node.value:
-                node.value, child.value = child.value, node.value
-                Heap._trickle_down(child)
-        if node.left and Heap._is_heap_satisfied(node.left) is None:
-            Heap._trickle_down(node.left)
-        if node.right and Heap._is_heap_satisfied(node.right) is None:
-            Heap._trickle_down(node.right)
+        value = node.value
+        if node.left is None:
+            return None
+        if node.right is None or node.right.value > node.left.value:
+            child = node.left
+        else:
+            child = node.right
+        if child.value < node.value:
+            node.value = child.value
+            child.value = value
+            Heap._trickle_down(child)
