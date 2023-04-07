@@ -207,13 +207,13 @@ class Heap(BinaryTree):
         '''
         if len(remove) == 1:
             if remove[0] == '1':
-                num = node.right.value
+                number = node.right.value
                 node.right = None
-                return num
+                return number
             else:
-                num = node.left.value
+                number = node.left.value
                 node.left = None
-                return num
+                return number
         elif remove[0] == '1':
             remove.pop(0)
             return Heap._remove_bottom_right(node.right, remove)
