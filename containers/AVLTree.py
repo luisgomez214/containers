@@ -41,7 +41,11 @@ class AVLTree():
         '''
         Returns True if the avl tree satisfies that all nodes have a balance factor in [-1,0,1].
         '''
-        return AVLTree._is_avl_satisfied(self.root)
+        if self.root is None:
+            return True
+        else:
+            return AVLTree._is_avl_satisfied(self.root)
+       # return AVLTree._is_avl_satisfied(self.root)
 
     @staticmethod
     def _is_avl_satisfied(node):
@@ -49,6 +53,14 @@ class AVLTree():
         FIXME:
         Implement this function.
         '''
+        if AVLTree._balance_factor(node) not in [-1, 0, 1]:
+            return False
+        elif not node:
+            return True
+        else:
+            left_satisfied = AVLTree._is_avl_satisfied(node.left)
+            right_satisfied = AVLTree._is_avl_satisfied(node.right)
+            return left_satisfied and right_satisfied
 
     @staticmethod
     def _left_rotate(node):
