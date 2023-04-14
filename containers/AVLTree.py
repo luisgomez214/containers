@@ -48,6 +48,10 @@ class AVLTree(BST):
             return True
         else:
             return AVLTree._is_avl_satisfied(self.root)
+#<<<<<<< HEAD
+#=======
+       # return AVLTree._is_avl_satisfied(self.root)
+#>>>>>>> heap
 
     @staticmethod
     def _is_avl_satisfied(node):
