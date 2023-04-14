@@ -310,30 +310,6 @@ def test__BST_iterable_1():
 
 @given(xs=ints)
 def test__BST_iterable_2(xs):
-#def test__BST_iterable_1():
-#    '''
-#    The BST should be iterable.
-#    Iterating over the tree should give the results in sorted order.
-#
-#    HINT:
-#    Currently, the BST class is not iterable because it does not define the __iter__ method.
-#    Therefore, these tests all fail.
-#    You must define an appropriate __iter__ method in order to make these tests pass.
-#    I encourage you to think carefully about how you can reuse your previously implemented functions to implement the iterable interface.
-#    '''
-#    xs = [1, 2, 3, 4, 5]
-#    bst = BST(xs)
-#    _iter = iter(bst)
-#    assert next(_iter) == 1
-#    assert next(_iter) == 2
-#    assert next(_iter) == 3
-#    assert next(_iter) == 4
-#    assert next(_iter) == 5
-#    try:
-#        next(_iter)
-#    except StopIteration:
-#        pass
-
 
 @given(xs=ints)
 def test__BST_eq(xs):
