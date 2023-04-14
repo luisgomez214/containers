@@ -196,7 +196,8 @@ class Heap(BinaryTree):
         else:
             self.root.value = Heap._remove_bottom_right(self.root, remove)
             Heap._trickle_down(self.root)
-
+    
+    @staticmethod
     def _remove_bottom_right(node, remove):
         '''
         Removes and returns the bottom right node in the
