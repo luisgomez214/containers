@@ -187,15 +187,28 @@ class Heap(BinaryTree):
         but I personally found dividing up the code into
         two made the most sense.
         '''
-        remove = list('{0:b}'.format(self.num_nodes))
-        self.num_nodes = self.num_nodes - 1
-        remove.pop(0)
+        #remove = list('{0:b}'.format(self.num_nodes))
+        #self.num_nodes = self.num_nodes - 1
+        #remove.pop(0)
 
-        if len(remove) < 1:
+        #if len(remove) < 1:
+        #    self.root = None
+        #else:
+        #    self.root.value = Heap._remove_bottom_right(self.root, remove)
+        #    Heap._trickle_down(self.root)
+        
+        binary = bin(self.num_nodes)[3:]
+        remove = Heap._remove_bottom_right(self.root, binary)
+        self.root.value = node_to_remove.value
+        self.num_nodes -= 1
+
+        if self.root is None:
+            return None
+        if self.num_nodes == 1:
             self.root = None
-        else:
-            self.root.value = Heap._remove_bottom_right(self.root, remove)
-            Heap._trickle_down(self.root)
+            self.num_nodes = 0
+            return None
+        Heap._trickle_down(self.root)
 
     @staticmethod
     def _remove_bottom_right(node, remove):
@@ -205,21 +218,36 @@ class Heap(BinaryTree):
         HINT:
         Recursively traverse the tree to the right until we hit a leaf node.
         '''
-        if len(remove) == 1:
-            if remove[0] == '1':
-                number = node.right.value
-                node.right = None
-                return number
+        #if len(remove) == 1:
+        #    if remove[0] == '1':
+        #        number = node.right.value
+        #        node.right = None
+        #        return number
+        #    else:
+        #        number = node.left.value
+        #        node.left = None
+        #        return number
+        #elif remove[0] == '1':
+        #    remove.pop(0)
+        #    return Heap._remove_bottom_right(node.right, remove)
+        #else:
+        #    remove.pop(0)
+        #    return Heap._remove_bottom_right(node.left, remove)
+        
+        if len(binary) == 1:
+            if binary[0] == '0':
+                node.left = Node(value)
             else:
-                number = node.left.value
-                node.left = None
-                return number
-        elif remove[0] == '1':
-            remove.pop(0)
-            return Heap._remove_bottom_right(node.right, remove)
-        else:
-            remove.pop(0)
-            return Heap._remove_bottom_right(node.left, remove)
+                Heap._remove_bottom_right(node.left, remove)
+            if node.value > node.left.value:
+                node.value, node.left.value = node.left.value, node.value
+            if binary[0] == '1':
+                node.right = Node(value)
+            else:
+                Heap._remove_bottom_right(node.right, remove)
+            if node.value > noderight.value:
+                node.value, node.right.value = node.right.value, node.value
+
 
     @staticmethod
     def _trickle_down(node):
