@@ -348,7 +348,7 @@ def test__BST_eq(xs):
     but tests the == operator specifically.
     '''
 #>>>>>>> 66def44ebc60cc47992071c3f591a151895e1993
->>>>>>> heap
+#>>>>>>> heap
     xs = list(set(xs))
 
     xs1 = copy.copy(xs)
