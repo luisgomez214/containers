@@ -196,21 +196,7 @@ class Heap(BinaryTree):
         else:
             self.root.value = Heap._remove_bottom_right(self.root, remove)
             Heap._trickle_down(self.root)
-        
-        #binary = bin(self.num_nodes)[3:]
-        #remove = Heap._remove_bottom_right(self.root, binary)
-        #self.root.value = node_to_remove.value
-        #self.num_nodes -= 1
 
-        #if self.root is None:
-        #    return None
-        #if self.num_nodes == 1:
-        #    self.root = None
-        #    self.num_nodes = 0
-        #    return None
-        #Heap._trickle_down(self.root)
-
-    @staticmethod
     def _remove_bottom_right(node, remove):
         '''
         Removes and returns the bottom right node in the
@@ -233,21 +219,6 @@ class Heap(BinaryTree):
         else:
             remove.pop(0)
             return Heap._remove_bottom_right(node.left, remove)
-        
-        #if len(binary) == 1:
-        #    if binary[0] == '0':
-        #        node.left = Node(value)
-        #    else:
-        #        Heap._remove_bottom_right(node.left, remove)
-        #    if node.value > node.left.value:
-        #        node.value, node.left.value = node.left.value, node.value
-        #    if binary[0] == '1':
-        #        node.right = Node(value)
-        #    else:
-        #        Heap._remove_bottom_right(node.right, remove)
-        #    if node.value > noderight.value:
-        #        node.value, node.right.value = node.right.value, node.value
-
 
     @staticmethod
     def _trickle_down(node):
